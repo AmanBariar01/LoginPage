@@ -4,7 +4,7 @@
 
 Welcome to **LoginPage**, a robust MVC project designed to manage user authentication seamlessly. 
 
-# Note 
+## Note 
 I have removed appsettings.json file as it contains important crendentials of my Email and password.
 
 ## Key Features
