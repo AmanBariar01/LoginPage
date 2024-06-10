@@ -1,0 +1,16 @@
+﻿@model User
+
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #f8f9fa;">
+    <form method="post" action="@Url.Action("VerifyToken", "Password")" style="border: 1px solid #ccc; padding: 30px; display: flex; flex-direction: column; align-items: center; width: 80%; max-width: 500px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+
+        <h2 style="text-align: center; color: #007bff; margin-bottom: 20px;">Reset Password Token</h2>
+
+        <div class="form-group mb-3" style="width: 100%;">
+            <label for="ResetPasswordToken" class="form-label">Token :</label>
+            <input asp-for="ResetPasswordToken" class="form-control" id="ResetPasswordToken" placeholder="Enter your token" style="height: 50px; font-size: 18px; color: #495057; border: 1px solid #ced4da; border-radius: 4px; padding: 0 12px; margin-bottom: 10px; width: 100%;" />
+            <span asp-validation-for="ResetPasswordToken" class="text-danger" style="font-size: 16px;"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" style="height: 50px; font-size: 18px; border: none; border-radius: 4px; cursor: pointer; width: 100%;">Submit</button>
+    </form>
+</div>

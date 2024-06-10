@@ -1,0 +1,75 @@
+﻿@model User
+
+@if (ViewBag.ResetSuccessMessage != null)
+{
+    <div class="alert alert-success">
+        @ViewBag.ResetSuccessMessage
+    </div>
+}
+
+@if (ViewBag.LockoutMessage != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.LockoutMessage
+    </div>
+}
+
+@if (ViewBag.UnlockSuccess == true)
+{ 
+    <div class="alert alert-success">
+        Account unlocked successfully!
+    </div>
+}
+
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #f8f9fa;">
+
+    <form method="post" style="background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 30px; width: 100%; max-width: 500px;">
+
+        <h2 style="text-align: center; color: #007bff; margin-bottom: 20px;">Login</h2>
+
+        
+        <div class="form-group mb-3">
+            <label for="Email" class="form-label">Email :</label>
+            <input asp-for="Email" class="form-control" id="Email" placeholder="Enter your Email" style="margin-bottom: 10px; height: 50px; font-size: 18px; color: #495057; border: 1px solid #ced4da; border-radius: 4px; padding: 0 12px;" />
+            <span asp-validation-for="Email" class="text-danger" style="font-size: 16px;"></span>
+        </div>
+
+        <div class="text-center mt-3">
+            <p style="font-size: 16px; color: #6c757d;">Or</p>
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="UserName" class="form-label">Username :</label>
+            <input asp-for="UserName" class="form-control" id="UserName" placeholder="Enter your username" style="height: 50px; font-size: 18px; color: #495057; border: 1px solid #ced4da; border-radius: 4px; padding: 0 12px;" />
+            <span asp-validation-for="UserName" class="text-danger" style="font-size: 16px;"></span>
+        </div>
+
+        
+        <div class="form-group mb-3" style="margin-top: 20px;">
+            <label for="Password" class="form-label">Password :</label>
+            <input asp-for="Password" type="password" class="form-control" id="Password" placeholder="Enter your password" style="height: 50px; font-size: 18px; color: #495057; border: 1px solid #ced4da; border-radius: 4px; padding: 0 12px;" />
+            <span asp-validation-for="Password" class="text-danger" style="font-size: 16px;"></span>
+        </div>
+
+
+        <button type="submit" class="btn btn-success btn-block" style="height: 50px; font-size: 18px; border: none; border-radius: 4px; cursor: pointer; margin-bottom: 10px; width: 100%;">Login</button>
+
+        <a asp-controller="Registration" asp-action="SignUp" class="btn btn-danger btn-block align-text-center"
+           style="height: 50px; font-size: 18px; border: none; border-radius: 4px; cursor: pointer; width: 100%;">Don't have an Account? SignUp</a>
+
+
+
+        <div class="text-center mt-3">
+            <a asp-controller="Password" asp-action="Index" class="btn btn-link" style="font-size: 16px; color: #007bff; text-decoration: none;">Forgot Password?</a>
+        </div>
+
+        @if (ViewBag.IsAccountLocked)
+        {
+            <div class="text-center mt-3">
+                <a asp-controller="Unlock" asp-action="Index" class="btn btn-link" style="font-size: 16px; color: #dc3545; text-decoration: none;">Unlock Account</a>
+            </div>
+        }
+
+    </form>
+</div>
+
